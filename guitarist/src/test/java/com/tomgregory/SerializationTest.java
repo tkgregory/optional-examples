@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UseCasesTest {
+public class SerializationTest {
     @AllArgsConstructor
     @Getter
     private static final class Guitarist implements Serializable {
