@@ -7,7 +7,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OptionalTests {
+@SuppressWarnings("ConstantConditions")
+public class OptionalFunctionalMethodTests {
 
     @Test
     public void testPresent() {
