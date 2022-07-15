@@ -3,6 +3,7 @@ package com.tomgregory;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,8 +11,10 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Optional;
 
+import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OptionalAdvancedMethodTests {
@@ -32,6 +35,7 @@ public class OptionalAdvancedMethodTests {
     @AllArgsConstructor
     @Getter
     @EqualsAndHashCode
+    @ToString
     private static final class Guitarist implements Serializable {
         private String name;
         private Integer ageAtDeath;
@@ -86,5 +90,34 @@ public class OptionalAdvancedMethodTests {
     public void flatMapWhenEmpty() {
         Optional<Guitarist> emptyGuitarist = Optional.empty();
         assertEquals(Optional.empty(), emptyGuitarist.flatMap(guitarist -> Optional.of(guitarist.getName())));
+    }
+
+    @Test
+    public void stream() {
+        GuitaristRepository guitaristRepository = new GuitaristRepository();
+        List<String> guitaristsToFindByName = asList("Hendrix", "Sheeran", "Cobain");
+
+        List<Guitarist> foundGuitarists = guitaristsToFindByName.stream()
+                .map(guitaristRepository::findGuitaristByName)
+                .flatMap(Optional::stream)
+                .toList();
+
+        assertEquals(asList(new Guitarist("Hendrix", 27), new Guitarist("Cobain", 27)), foundGuitarists);
+    }
+
+    private static final class GuitaristRepository {
+        private static final Guitarist HENDRIX = new Guitarist("Hendrix", 27);
+        private static final Guitarist COBAIN = new Guitarist("Cobain", 27);
+
+        public Optional<Guitarist> findGuitaristByName(String name) {
+            switch (name) {
+                case "Hendrix":
+                    return Optional.of(HENDRIX);
+                case "Cobain":
+                    return Optional.of(COBAIN);
+                default:
+                    return Optional.empty();
+            }
+        }
     }
 }
