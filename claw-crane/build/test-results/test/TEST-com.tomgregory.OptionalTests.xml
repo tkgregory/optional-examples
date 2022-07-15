@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tomgregory.OptionalTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-07-08T11:39:51" hostname="DESKTOP-J0R9V8A" time="0.042">
+  <properties/>
+  <testcase name="testOfNullableNotEmpty()" classname="com.tomgregory.OptionalTests" time="0.035"/>
+  <testcase name="testOrElseGet()" classname="com.tomgregory.OptionalTests" time="0.001"/>
+  <testcase name="testEmpty()" classname="com.tomgregory.OptionalTests" time="0.001"/>
+  <testcase name="testPresent()" classname="com.tomgregory.OptionalTests" time="0.001"/>
+  <testcase name="testOfNullableEmpty()" classname="com.tomgregory.OptionalTests" time="0.001"/>
+  <testcase name="testOrElse()" classname="com.tomgregory.OptionalTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
