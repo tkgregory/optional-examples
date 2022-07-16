@@ -16,9 +16,6 @@ dependencies {
     runtimeOnly("com.h2database:h2:2.1.210")
     compileOnly("org.projectlombok:lombok:1.18.24")
     annotationProcessor("org.projectlombok:lombok:1.18.24")
-    testCompileOnly("org.projectlombok:lombok:1.18.24")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.24")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
 }
 
 tasks.named<Test>("test") {
