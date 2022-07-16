@@ -1,4 +1,4 @@
-package com.tomgregory.model;
+package com.tomgregory.optional.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

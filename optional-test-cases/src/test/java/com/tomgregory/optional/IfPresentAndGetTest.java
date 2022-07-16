@@ -1,4 +1,4 @@
-package com.tomgregory;
+package com.tomgregory.optional;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

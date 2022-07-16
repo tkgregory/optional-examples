@@ -1,10 +1,8 @@
-package com.tomgregory.service;
+package com.tomgregory.optional.service;
 
-import com.tomgregory.model.Guitarist;
-import com.tomgregory.repository.GuitaristRepository;
+import com.tomgregory.optional.model.Guitarist;
+import com.tomgregory.optional.repository.GuitaristRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class GuitaristService {

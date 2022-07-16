@@ -1,4 +1,4 @@
-package com.tomgregory;
+package com.tomgregory.optional;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings("ConstantConditions")
-public class OptionalFunctionalMethodTests {
+public class FunctionalMethodTest {
 
     @Test
     public void testPresent() {

@@ -1,14 +1,11 @@
-package com.tomgregory.controller;
+package com.tomgregory.optional.controller;
 
-import com.tomgregory.model.Guitarist;
-import com.tomgregory.service.GuitaristService;
+import com.tomgregory.optional.model.Guitarist;
+import com.tomgregory.optional.service.GuitaristService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
-
-import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RestController
 public class GuitaristController {
