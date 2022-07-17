@@ -29,7 +29,8 @@ public class GuitaristServiceTest {
 
     @Test
     public void ifPresent() {
-        Optional<Guitarist> lookupResult = guitaristService.findByLastName("Hendrix"); // returns Optional with value
+        // returns Optional with value
+        Optional<Guitarist> lookupResult = guitaristService.findByLastName("Hendrix");
         lookupResult.ifPresent(guitarist -> System.out.println(guitarist.getSignatureSong()));
 
         assertEquals("Purple Haze", outputStreamCaptor.toString().trim());
@@ -37,8 +38,12 @@ public class GuitaristServiceTest {
 
     @Test
     public void ifPresentOrElse() {
-        Optional<Guitarist> lookupResult = guitaristService.findByLastName("Page"); // returns empty Optional
-        lookupResult.ifPresentOrElse(guitarist -> System.out.println(guitarist.getSignatureSong()), () -> System.out.println("Guitarist not found!"));
+        // returns empty Optional
+        Optional<Guitarist> lookupResult = guitaristService.findByLastName("Page");
+        lookupResult.ifPresentOrElse(
+                guitarist -> System.out.println(guitarist.getSignatureSong()),
+                () -> System.out.println("Guitarist not found!")
+        );
 
         assertEquals("Guitarist not found!", outputStreamCaptor.toString().trim());
     }
@@ -46,7 +51,8 @@ public class GuitaristServiceTest {
     @Test
     public void orElse() {
         Guitarist defaultGuitarist = new Guitarist("Ed", "Sheeran", "The A team");
-        Guitarist guitarist = guitaristService.findByLastName("Page").orElse(defaultGuitarist); // returns empty Optional
+        // returns empty Optional
+        Guitarist guitarist = guitaristService.findByLastName("Page").orElse(defaultGuitarist);
         System.out.println("Recommended listening: " + guitarist.getSignatureSong());
 
         assertEquals("Recommended listening: The A team", outputStreamCaptor.toString().trim());
