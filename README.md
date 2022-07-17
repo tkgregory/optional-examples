@@ -1,3 +1,5 @@
+[![CI](https://github.com/tkgregory/optional-examples/actions/workflows/gradle.yml/badge.svg)](https://github.com/tkgregory/optional-examples/actions/workflows/gradle.yml)
+
 This repository contains 2 projects to help understand Java's `Optional` class.
 
 ## 1. guitarist-api
