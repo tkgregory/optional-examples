@@ -77,13 +77,17 @@ public class FunctionalMethodTest {
     @Test
     public void orElseThrowWithSupplierWhenPresent() {
         Optional<String> presentOptional = Optional.of("Jimmy");
-        assertDoesNotThrow(() -> presentOptional.orElseThrow(() -> new RuntimeException("Oops")));
+        assertDoesNotThrow(
+                () -> presentOptional.orElseThrow(() -> new RuntimeException("Oops"))
+        );
     }
 
     @Test
     public void orElseThrowWithSupplierWhenEmpty() {
         Optional<String> emptyOptional = Optional.empty();
-        assertThrows(RuntimeException.class, (() -> emptyOptional.orElseThrow(() -> new RuntimeException("Oops"))));
+        assertThrows(RuntimeException.class,
+                () -> emptyOptional.orElseThrow(() -> new RuntimeException("Oops"))
+        );
     }
 
     @Test

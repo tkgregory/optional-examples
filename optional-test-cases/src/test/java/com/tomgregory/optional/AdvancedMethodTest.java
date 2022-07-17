@@ -83,13 +83,15 @@ public class AdvancedMethodTest {
     @Test
     public void flatMapWhenPresent() {
         Optional<Guitarist> jimiHendrix = Optional.of(new Guitarist("Jimi Hendrix", 27));
-        assertEquals(Optional.of("Jimi Hendrix"), jimiHendrix.flatMap(guitarist -> Optional.of(guitarist.getName())));
+        assertEquals(Optional.of("Jimi Hendrix"),
+                jimiHendrix.flatMap(guitarist -> Optional.of(guitarist.getName())));
     }
 
     @Test
     public void flatMapWhenEmpty() {
         Optional<Guitarist> emptyGuitarist = Optional.empty();
-        assertEquals(Optional.empty(), emptyGuitarist.flatMap(guitarist -> Optional.of(guitarist.getName())));
+        assertEquals(Optional.empty(),
+                emptyGuitarist.flatMap(guitarist -> Optional.of(guitarist.getName())));
     }
 
     @Test
