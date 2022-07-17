@@ -20,6 +20,7 @@ public class GuitaristController {
 
     @GetMapping(value = "/guitarist/{lastName}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Guitarist getGuitarist(@PathVariable String lastName) {
-        return guitaristService.findByLastName(lastName).orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Unable to find guitarist."));
+        return guitaristService.findByLastName(lastName)
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Guitarist not found."));
     }
 }

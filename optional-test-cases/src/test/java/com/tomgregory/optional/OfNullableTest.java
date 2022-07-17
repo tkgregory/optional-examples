@@ -39,7 +39,10 @@ public class OfNullableTest {
     public void ofNullableWithValue() {
         Guitarist guitarist = Guitarist.builder().lastName("Hendrix").ageAtDeath(27).build();
 
-        Optional.ofNullable(guitarist.getAgeAtDeath()).ifPresentOrElse(age -> System.out.println("Died at age " + age), () -> System.out.println("Still alive!"));
+        Optional.ofNullable(guitarist.getAgeAtDeath()).ifPresentOrElse(
+                age -> System.out.println("Died at age " + age),
+                () -> System.out.println("Still alive!")
+        );
 
         assertEquals("Died at age 27", outputStreamCaptor.toString().trim());
     }
@@ -48,7 +51,10 @@ public class OfNullableTest {
     public void ofNullableWithNull() {
         Guitarist guitarist = Guitarist.builder().lastName("Knopfler").build();
 
-        Optional.ofNullable(guitarist.getAgeAtDeath()).ifPresentOrElse(age -> System.out.println("Died at age " + age), () -> System.out.println("Still alive!"));
+        Optional.ofNullable(guitarist.getAgeAtDeath()).ifPresentOrElse(
+                age -> System.out.println("Died at age " + age),
+                () -> System.out.println("Still alive!")
+        );
 
         assertEquals("Still alive!", outputStreamCaptor.toString().trim());
     }
