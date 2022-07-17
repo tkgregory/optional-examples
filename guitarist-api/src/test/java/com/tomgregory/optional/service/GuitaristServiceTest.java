@@ -12,7 +12,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GuitaristServiceTest {
-    private GuitaristService guitaristService = new GuitaristService();
+    private final GuitaristService guitaristService = new GuitaristService();
 
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();

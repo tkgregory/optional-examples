@@ -36,7 +36,7 @@ public class IfPresentAndGetTest {
     }
 
     @Test
-    public void canUseIfPresent() throws Exception {
+    public void canUseIfPresent() {
         Optional<Guitarist> guitaristOptional = Optional.of(new Guitarist("Mark", "Knopfler", "Money For Nothing"));
 
         guitaristOptional.ifPresent(guitarist -> System.out.println(guitarist.getSignatureSong()));
@@ -45,7 +45,7 @@ public class IfPresentAndGetTest {
     }
 
     @Test
-    public void canUseIsPresentAntiPattern() throws Exception {
+    public void canUseIsPresentAntiPattern() {
         Optional<Guitarist> guitaristOptional = Optional.of(new Guitarist("Mark", "Knopfler", "Money For Nothing"));
 
         if (guitaristOptional.isPresent()) {

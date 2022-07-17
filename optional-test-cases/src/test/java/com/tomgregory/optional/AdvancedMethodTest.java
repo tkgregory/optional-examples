@@ -110,14 +110,11 @@ public class AdvancedMethodTest {
         private static final Guitarist COBAIN = new Guitarist("Cobain", 27);
 
         public Optional<Guitarist> findGuitaristByName(String name) {
-            switch (name) {
-                case "Hendrix":
-                    return Optional.of(HENDRIX);
-                case "Cobain":
-                    return Optional.of(COBAIN);
-                default:
-                    return Optional.empty();
-            }
+            return switch (name) {
+                case "Hendrix" -> Optional.of(HENDRIX);
+                case "Cobain" -> Optional.of(COBAIN);
+                default -> Optional.empty();
+            };
         }
     }
 }

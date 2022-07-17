@@ -4,7 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.NotSerializableException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +22,7 @@ public class SerializationTest {
     }
 
     @Test
-    public void throwsNotSerializableException() throws IOException {
+    public void throwsNotSerializableException() {
         Guitarist guitarist = new Guitarist("Hendrix", Optional.of(27));
 
         NotSerializableException exception = assertThrows(
