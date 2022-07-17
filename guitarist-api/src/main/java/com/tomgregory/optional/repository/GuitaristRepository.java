@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface GuitaristRepository extends CrudRepository<Guitarist, Integer> {
-    Optional<Guitarist> findByLastName(String lastName);
+    Optional<Guitarist> findByLastNameIgnoreCase(String lastName);
 }
