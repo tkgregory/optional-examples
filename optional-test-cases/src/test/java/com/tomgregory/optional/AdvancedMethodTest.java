@@ -13,6 +13,7 @@ import java.io.PrintStream;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -96,27 +97,29 @@ public class AdvancedMethodTest {
 
     @Test
     public void stream() {
-        GuitaristRepository guitaristRepository = new GuitaristRepository();
-        List<String> guitaristsToFindByName = asList("Hendrix", "Sheeran", "Cobain");
+        Guitarist hendrix = new Guitarist("Hendrix", 27);
+        Guitarist cobain = new Guitarist("Cobain", 27);
 
-        List<Guitarist> foundGuitarists = guitaristsToFindByName.stream()
-                .map(guitaristRepository::findGuitaristByName)
+        List<Optional<Guitarist>> guitarists = asList(Optional.of(hendrix), Optional.empty(), Optional.of(cobain));
+
+        List<Guitarist> foundGuitarists = guitarists.stream()
                 .flatMap(Optional::stream)
                 .toList();
 
-        assertEquals(asList(new Guitarist("Hendrix", 27), new Guitarist("Cobain", 27)), foundGuitarists);
+        assertEquals(asList(hendrix, cobain), foundGuitarists);
     }
 
-    private static final class GuitaristRepository {
-        private static final Guitarist HENDRIX = new Guitarist("Hendrix", 27);
-        private static final Guitarist COBAIN = new Guitarist("Cobain", 27);
 
-        public Optional<Guitarist> findGuitaristByName(String name) {
-            return switch (name) {
-                case "Hendrix" -> Optional.of(HENDRIX);
-                case "Cobain" -> Optional.of(COBAIN);
-                default -> Optional.empty();
-            };
+    public static void main(String[] args) {
+        Stream<Integer> myStream = Stream.of(10, 20, 30);
+        System.out.println(myStream.flatMap(it -> mappy(it)).toList());
+    }
+
+    private static Stream<?> mappy(Integer it) {
+        if (it == 20) {
+            return Stream.of(20, 21);
         }
+
+        return Stream.of(it);
     }
 }
