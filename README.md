@@ -1,6 +1,6 @@
 [![CI](https://github.com/tkgregory/optional-examples/actions/workflows/gradle.yml/badge.svg)](https://github.com/tkgregory/optional-examples/actions/workflows/gradle.yml)
 
-Accompanies *Java Optional Complete Guide* [YouTube video](https://youtu.be/uEe1S21vSus) and [article](https://tomgregory.com/java-optional).<br/>
+Accompanies *Java Optional Complete Guide* [YouTube video](https://youtu.be/uEe1S21vSus) and [article](https://gradlehero.com/java-optional).<br/>
 [<img src="YouTube thumbnail.png" width="500"/>](https://youtu.be/uEe1S21vSus)
 
 This repository contains 2 projects to help understand `Optional`.
